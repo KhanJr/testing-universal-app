@@ -1,0 +1,8 @@
+{
+  "name": "universal-react-v2",
+  "version": "2.0.0",
+  "type": "ssg",
+  "optionalFeatures": [],
+  "description": "This file is needed by universal-react app for future upgrades. Please do not delete this file.",
+  "appName": "test-app"
+}

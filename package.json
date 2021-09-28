@@ -1,0 +1,73 @@
+{
+  "name": "test-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "env-var": "cross-env BASE_PATH=/universal-react",
+    "dev": "next dev",
+    "build": "next build",
+    "build:prod": "npm run env-var && npm run build",
+    "start": "next start dev",
+    "export": "next export",
+    "test:watch": "npm run test -- --watch",
+    "test": "jest -c ./config/jest/jest.config.js",
+    "storybook:install": "cd storybook && yarn",
+    "storybook:run": "cd storybook && yarn storybook",
+    "storybook:build": "cd storybook && yarn build-storybook",
+    "generate": "plop --plopfile generators/index.js",
+    "bundlesize": "bundlesize --config ./config/bundlesize.json",
+    "analyze": "cross-env ANALYZE=true next build",
+    "perf": "docker-compose -f ./config/performance/sitespeed-compose.yml run sitespeed.io  --config sitespeed.config.json --budget.configPath sitespeed.budget.config.json --graphite.host=graphite urls.txt",
+    "postinstall": "husky install",
+    "cm": "npx git-cz",
+    "cm:retry": "npx git-cz --retry",
+    "dummy": "dummy command"
+  },
+  "browserslist": [
+    "> 0.25%",
+    "not ie <= 11",
+    "not edge < 15",
+    "not op_mini all",
+    "not dead"
+  ],
+  "dependencies": {
+    "@apollo/react-hooks": "^3.1.5",
+    "apollo-boost": "^0.4.9",
+    "apollo-link": "^1.2.14",
+    "apollo-link-error": "^1.1.13",
+    "express": "^4.17.1",
+    "fetch-mock": "^9.11.0",
+    "graphql": "^15.6.0",
+    "helmet": "^3.23.3",
+    "next": "^9.4.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@commitlint/cli": "^13.2.0",
+    "@commitlint/config-angular": "^13.2.0",
+    "@next/bundle-analyzer": "^9.5.5",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^10.4.9",
+    "@testing-library/react-hooks": "^3.7.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "bundlesize": "^0.18.1",
+    "cross-env": "^7.0.3",
+    "jest": "^25.2.7",
+    "jest-mock-console": "^1.1.0",
+    "plop": "^2.7.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "git-cz",
+      "maxHeaderWidth": 100,
+      "maxLineWidth": 100,
+      "defaultType": "",
+      "defaultScope": "",
+      "defaultSubject": "",
+      "defaultBody": "",
+      "defaultIssues": ""
+    }
+  }
+}
